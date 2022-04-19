@@ -1070,10 +1070,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea064b3b2621ba49af801669a97105c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireTransform: {fileID: 0}
-  muzzleFlashEffect: {fileID: 0}
-  shellEjectEffect: {fileID: 0}
-  gunData: {fileID: 0}
+  fireTransform: {fileID: 4126983702692336, guid: 13259943c4d634186ac994d570bb3253, type: 3}
+  muzzleFlashEffect: {fileID: 198000012944515248, guid: 74d744994bc414c37bfda957f1d57118, type: 3}
+  shellEjectEffect: {fileID: 198000010131513902, guid: 8e60b325a019543cbb2e3920522a2e6b, type: 3}
+  gunData: {fileID: 11400000, guid: 1da3c503da2d25045b1622e0e2a95097, type: 2}
   ammoRemain: 100
   magAmmo: 0
 --- !u!1001 &1885171930

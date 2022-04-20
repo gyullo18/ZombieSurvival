@@ -15,8 +15,11 @@ public class Gun : MonoBehaviour
 
     public State state { get; private set; } // 현재 총의 상태
 
-    public Transform fireTransform; // 탄알이 발사될 위치
-
+    /// <summary>
+    /// 탄알이 발사될 위치
+    /// </summary>
+    public Transform fireTransform; 
+    
     public ParticleSystem muzzleFlashEffect; // 총구 화염 효과
     public ParticleSystem shellEjectEffect; // 탄피 배출 효과
 
@@ -144,7 +147,16 @@ public class Gun : MonoBehaviour
     // 재장전 시도
     public bool Reload()
     {
-        return false;
+        if ( state == State.Reloading || ammoRemain <= 0 || magAmmo >= gunData.magCapacity)
+        {
+            //이미 재장전 중이거나 남은 탄알이 없거나
+            // 탄창에 탄알이 이미 가득한 경우 재장전 할 수 없음.
+            return false;
+        }
+
+        // 재장전 처리 시작
+        StartCoroutine(ReloadRoutine());
+        return true;
     }
 
     // 실제 재장전 처리를 진행
@@ -152,9 +164,27 @@ public class Gun : MonoBehaviour
     {
         // 현재 상태를 재장전 중 상태로 전환
         state = State.Reloading;
+        // 재장전 소리 재생
+        gunAudioPlayer.PlayOneShot(gunData.reloadClip);
 
         // 재장전 소요 시간만큼 처리 쉬기
         yield return new WaitForSeconds(gunData.reloadTime);
+
+        // 탄창에 채울 탄알 계산
+        int ammoToFill = gunData.magCapacity - magAmmo;
+
+        // 탄창에 채워야 할 탄알이 남은 탄알보다 많다면
+        // 채워야 할 탄알 수를 남은 탄알 수에 맞춰 줄임
+        if ( ammoRemain < ammoToFill)
+        {
+            ammoToFill = ammoRemain;
+        }
+
+        // 탄창을 채움
+        magAmmo += ammoToFill;
+
+        // 남은 탄알에서 탄창에 채운만큼 탄알을 뺌
+        ammoRemain -= ammoToFill;
 
         // 총의 현재 상태를 발사 준비된 상태로 변경
         state = State.Ready;

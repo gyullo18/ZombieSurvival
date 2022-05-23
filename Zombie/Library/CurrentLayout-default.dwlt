@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 520
     width: 487
     height: 427
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 276, y: 192}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 101
+  controlID: 28
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 342}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 180
+  controlID: 88
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 127
+  controlID: 123
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 179
+  controlID: 87
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -544,22 +544,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/02.Scripts
+    - Assets/00.ScriptableData
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/02.Scripts
+  - Assets/00.ScriptableData
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Unity\GitHub\ZombieSurvival\Zombie
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7a4d0000
-    m_LastClickedID: 19834
-    m_ExpandedIDs: 00000000724d000000ca9a3b
+    m_SelectedIDs: 98440000
+    m_LastClickedID: 17560
+    m_ExpandedIDs: 000000008444000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -587,7 +587,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000724d0000
+    m_ExpandedIDs: 0000000084440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -618,15 +618,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000b4430000ae92ffff
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: PlayerMovement
-      m_OriginalName: PlayerMovement
+      m_Name: Gun
+      m_OriginalName: Gun
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 2344
+      m_UserData: 16410
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -708,9 +708,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 28090000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: acf4ffff
+      m_ExpandedIDs: 30fbffff38fbffff42fbffffe43f0000f83f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: -0.2000122, y: 1.0100098, z: 0.6700134}
     speed: 2
-    m_Value: {x: -0.2000122, y: 1.0100098, z: 0.6700134}
+    m_Value: {x: -0.2, y: -0.04, z: 0.17}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -821,11 +821,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.059189707, y: -0.94015855, z: 0.21845722, w: 0.2547473}
     speed: 2
-    m_Value: {x: 0.059189077, y: -0.9401486, z: 0.2184549, w: 0.2547446}
+    m_Value: {x: -0.17789021, y: -0.71296185, z: 0.195253, w: -0.64955133}
   m_Size:
     m_Target: 0.22462916
     speed: 2
-    m_Value: 0.22462916
+    m_Value: 0.2171016
   m_Ortho:
     m_Target: 0
     speed: 2

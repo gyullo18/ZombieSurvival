@@ -5,7 +5,9 @@ using UnityEngine;
 // 총을 구현
 public class Gun : MonoBehaviour
 {
-    // 총의 상태를 표현하는데 사용할 타입을 선언
+    /// <summary>
+    /// 총의 상태를 표현하는데 사용할 타입을 선언
+    /// </summary>
     public enum State
     {
         Ready, // 발사 준비됨
@@ -13,13 +15,13 @@ public class Gun : MonoBehaviour
         Reloading // 재장전 중
     }
 
-    public State state { get; private set; } // 현재 총의 상태
-
     /// <summary>
-    /// 탄알이 발사될 위치
+    /// 현재 총의 상태 - 읽기 전용 프로퍼티
     /// </summary>
-    public Transform fireTransform; 
-    
+    public State state { get; private set; } 
+
+    public Transform fireTransform; // 탄알이 발사될 위치
+
     public ParticleSystem muzzleFlashEffect; // 총구 화염 효과
     public ParticleSystem shellEjectEffect; // 탄피 배출 효과
 
@@ -36,6 +38,14 @@ public class Gun : MonoBehaviour
 
     private float lastFireTime; // 총을 마지막으로 발사한 시점
 
+    /// <summary>
+    /// GetComponent - 오브젝트 안에서 찾음 : 단 하나의 값.
+    /// GetComponentInChildern - 오브젝트 안의 자식들에서 찾음.
+    /// GetComponents - 하나의 오브젝트에 두개 이상의 컴포넌트가 있을 때(콜라이더) : 복수의 값[배열로].
+    /// ex) LineRenderer[] bulletLineRenderers = GetComponents<LineRenderer>();
+    /// GetComponentsInChildern - 자식들의 위치값을 전부 가져올 때
+    /// ex) Transform[] transform = GetComponents<Transform>();
+    /// </summary>
     private void Awake()
     {
         // 사용할 컴포넌트의 참조 가져오기
@@ -47,7 +57,12 @@ public class Gun : MonoBehaviour
         // 라인 렌더러를 비활성화
         bulletLineRenderer.enabled = false;
     }
-
+    /// <summary>
+    /// Start vs OnEnable
+    /// OnEnable : 객체가 활성화 되었을 때 실행
+    /// OnDisable : 객체가 비활성화 되었을 때 실행
+    /// 몬스터 재생성에 자주 씀.
+    /// </summary>
     private void OnEnable()
     {
         // 총 상태 초기화
@@ -56,13 +71,13 @@ public class Gun : MonoBehaviour
         // 현재 탄창을 가득 채우기
         magAmmo = gunData.magCapacity;
 
-        // 총의 현재 상태를 총을 쏠 준비가 된 상태로 변경
+        // 총의 현재 상태를 총을 쏠 준비가 된 상태로 변경(0도 됨)
         state = State.Ready;
         // 마지막으로 총을 쏜 시점을 초기화
         lastFireTime = 0;
     }
 
-    // 발사시도
+    // 발사시도 - 발사 처리x, 시도만
     public void Fire()
     {
         // 현재 상태가 발사 가능한 상태
@@ -90,6 +105,8 @@ public class Gun : MonoBehaviour
         {
             // 레이가 어떤 물체와 충돌한 경우
             // 충돌한 상대방으로부터 IDamageable 오브젝트 가져오기 시도
+            // GameObject a = hit.transform.gameObject;
+            // a.GetComponent<IDamageable>;
             IDamageable target = hit.collider.GetComponent<IDamageable>();
             
             // 상대방으로부터 IDamageable 오브젝트를 가져오는데 성공했다면
@@ -149,7 +166,7 @@ public class Gun : MonoBehaviour
     {
         if ( state == State.Reloading || ammoRemain <= 0 || magAmmo >= gunData.magCapacity)
         {
-            //이미 재장전 중이거나 남은 탄알이 없거나
+            // 이미 재장전 중이거나 남은 탄알이 없거나
             // 탄창에 탄알이 이미 가득한 경우 재장전 할 수 없음.
             return false;
         }

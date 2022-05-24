@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-// °ø°İ ´çÇÒ ¼ö ÀÖ´Â ¸ğµç ´ë»óÀÇ ÀÎÅÍÆäÀÌ½º
+// ê³µê²© ë‹¹í•  ìˆ˜ ìˆëŠ” ëª¨ë“  ëŒ€ìƒì˜ ì¸í„°í˜ì´ìŠ¤
 public interface IDamageable 
 {
     /// <summary>
-    /// ¸Å°³ º¯¼ö
+    /// ë§¤ê°œ ë³€ìˆ˜
     /// </summary>
-    /// <param name="damage">¹°Ã¼°¡ ¹Ş´Â µ¥¹ÌÁö</param>
-    /// <param name="hitPoint">Ãæµ¹ÇÑ À§Ä¡</param>
-    /// <param name="hitNormal">Ãæµ¹ÇÑ ¹æÇâ</param>
+    /// <param name="damage">ë¬¼ì²´ê°€ ë°›ëŠ” ë°ë¯¸ì§€</param>
+    /// <param name="hitPoint">ì¶©ëŒí•œ ìœ„ì¹˜</param>
+    /// <param name="hitNormal">ì¶©ëŒí•œ ë°©í–¥</param>
     void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal);
 }

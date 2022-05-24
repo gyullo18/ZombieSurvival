@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-// ÀÎÅÍÆäÀÌ½º (I??)
+// ì¸í„°í˜ì´ìŠ¤ (I??)
 public interface IItem 
 {
-    // ¾ÆÀÌÅÛ »ç¿ëÇÏ´Â ¸Ş¼­µå
+    // ì•„ì´í…œ ì‚¬ìš©í•˜ëŠ” ë©”ì„œë“œ
     void Use(GameObject target);
 }

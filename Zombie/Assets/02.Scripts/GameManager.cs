@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this; // this = ³» ÀÚ½Å
+            instance = this; // this = ë‚´ ìì‹ 
         }
         else
         {

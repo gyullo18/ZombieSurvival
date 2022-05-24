@@ -1,20 +1,20 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// »ç¿ëÀÚ ÀÔ·Â¿¡ µû¶ó ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍ¸¦ ¿òÁ÷ÀÌ´Â ½ºÅ©¸³Æ®
+// ì‚¬ìš©ì ì…ë ¥ì— ë”°ë¼ í”Œë ˆì´ì–´ ìºë¦­í„°ë¥¼ ì›€ì§ì´ëŠ” ìŠ¤í¬ë¦½íŠ¸
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f; // ¾ÕµÚ ¿òÁ÷ÀÓÀÇ ¼Óµµ
-    public float rotateSpeed = 100f; // ÁÂ¿ì È¸Àü ¼Óµµ
+    public float moveSpeed = 5f; // ì•ë’¤ ì›€ì§ì„ì˜ ì†ë„
+    public float rotateSpeed = 100f; // ì¢Œìš° íšŒì „ ì†ë„
 
-    private PlayerInput playerInput; // ÇÃ·¹ÀÌ¾î ÀÔ·ÂÀ» ¾Ë·ÁÁÖ´Â ÄÄÆ÷³ÍÆ®
+    private PlayerInput playerInput; // í”Œë ˆì´ì–´ ì…ë ¥ì„ ì•Œë ¤ì£¼ëŠ” ì»´í¬ë„ŒíŠ¸
 
     [SerializeField]
-    private Rigidbody playerRigidbody; // ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍÀÇ ¸®Áöµå¹Ùµğ
-    private Animator playerAnimator; // ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍÀÇ ¾Ö´Ï¸ŞÀÌÅÍ
+    private Rigidbody playerRigidbody; // í”Œë ˆì´ì–´ ìºë¦­í„°ì˜ ë¦¬ì§€ë“œë°”ë””
+    private Animator playerAnimator; // í”Œë ˆì´ì–´ ìºë¦­í„°ì˜ ì• ë‹ˆë©”ì´í„°
 
-    // »ç¿ëÇÒ ÄÄÆ÷³ÍÆ®µéÀÇ ÂüÁ¶ °¡Á®¿À±â
+    // ì‚¬ìš©í•  ì»´í¬ë„ŒíŠ¸ë“¤ì˜ ì°¸ì¡° ê°€ì ¸ì˜¤ê¸°
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -22,34 +22,34 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
     }
 
-    // FixedUpdate´Â ¹°¸® °»½Å ÁÖ±â¿¡ ¸ÂÃç ½ÇÇàµÊ
+    // FixedUpdateëŠ” ë¬¼ë¦¬ ê°±ì‹  ì£¼ê¸°ì— ë§ì¶° ì‹¤í–‰ë¨
     private void FixedUpdate()
     {
-        // ¹°¸® °»½Å ÁÖ±â¸¶´Ù ¿òÁ÷ÀÓ, È¸Àü, ¾Ö´Ï¸ŞÀÌ¼Ç Ã³¸® ½ÇÇà
-        // È¸Àü ½ÇÇà
+        // ë¬¼ë¦¬ ê°±ì‹  ì£¼ê¸°ë§ˆë‹¤ ì›€ì§ì„, íšŒì „, ì• ë‹ˆë©”ì´ì…˜ ì²˜ë¦¬ ì‹¤í–‰
+        // íšŒì „ ì‹¤í–‰
         Rotate();
-        // ¿òÁ÷ÀÓ ½ÇÇà
+        // ì›€ì§ì„ ì‹¤í–‰
         Move();
 
-        // ÀÔ·Â°ª¿¡ µû¶ó ¾Ö´Ï¸ŞÀÌÅÍÀÇ Move ÆÄ¶ó¹ÌÅÍ°ª º¯°æ
+        // ì…ë ¥ê°’ì— ë”°ë¼ ì• ë‹ˆë©”ì´í„°ì˜ Move íŒŒë¼ë¯¸í„°ê°’ ë³€ê²½
         playerAnimator.SetFloat("Move", playerInput.move);
     }
 
-    // ÀÔ·Â°ª¿¡ µû¶ó Ä³¸¯ÅÍ¸¦ ¾ÕµÚ·Î ¿òÁ÷ÀÓ
+    // ì…ë ¥ê°’ì— ë”°ë¼ ìºë¦­í„°ë¥¼ ì•ë’¤ë¡œ ì›€ì§ì„
     private void Move()
     {
-        // »ó´ëÀûÀ¸·Î ÀÌµ¿ÇÒ °Å¸® °è»ê
+        // ìƒëŒ€ì ìœ¼ë¡œ ì´ë™í•  ê±°ë¦¬ ê³„ì‚°
         Vector3 moveDistance = playerInput.move * transform.forward * moveSpeed * Time.deltaTime;
-        // ¸®Áöµå¹Ùµğ¸¦ ÀÌ¿ëÇØ °ÔÀÓ ¿ÀºêÁ§Æ® À§Ä¡ º¯°æ
+        // ë¦¬ì§€ë“œë°”ë””ë¥¼ ì´ìš©í•´ ê²Œì„ ì˜¤ë¸Œì íŠ¸ ìœ„ì¹˜ ë³€ê²½
         playerRigidbody.MovePosition(playerRigidbody.position + moveDistance);
     }
 
-    // ÀÔ·Â°ª¿¡ µû¶ó Ä³¸¯ÅÍ¸¦ ÁÂ¿ì·Î È¸Àü
+    // ì…ë ¥ê°’ì— ë”°ë¼ ìºë¦­í„°ë¥¼ ì¢Œìš°ë¡œ íšŒì „
     private void Rotate()
     {
-        // »ó´ëÀûÀ¸·Î È¸ÀüÇÒ ¼öÄ¡ °è»ê
+        // ìƒëŒ€ì ìœ¼ë¡œ íšŒì „í•  ìˆ˜ì¹˜ ê³„ì‚°
         float turn = playerInput.rotate * rotateSpeed * Time.deltaTime;
-        // ¸®Áöµå¹Ùµğ¸¦ ÀÌ¿ëÇØ °ÔÀÓ ¿ÀºêÁ§Æ® È¸Àü º¯°æ
+        // ë¦¬ì§€ë“œë°”ë””ë¥¼ ì´ìš©í•´ ê²Œì„ ì˜¤ë¸Œì íŠ¸ íšŒì „ ë³€ê²½
         playerRigidbody.rotation = playerRigidbody.rotation * Quaternion.Euler(0, turn, 0f);
     }
 }

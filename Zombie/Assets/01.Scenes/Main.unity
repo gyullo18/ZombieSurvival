@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &393018928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1773035065, guid: 13259943c4d634186ac994d570bb3253, type: 3}
+  m_PrefabInstance: {fileID: 1773035060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea064b3b2621ba49af801669a97105c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &572718290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -269,7 +280,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.41852477, y: 0.34116477, z: -0.17335865, w: 0.8236446}
+  m_LocalRotation: {x: 0.41852477, y: 0.34116474, z: -0.17335857, w: 0.8236447}
   m_LocalPosition: {x: -8, y: 16, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -341,6 +352,11 @@ Transform:
   m_Father: {fileID: 1707361566}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1158868951 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4355249862128598, guid: 13259943c4d634186ac994d570bb3253, type: 3}
+  m_PrefabInstance: {fileID: 1773035060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437887635
 GameObject:
   m_ObjectHideFlags: 3
@@ -494,7 +510,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707141424}
-  m_LocalRotation: {x: 0.41852477, y: 0.34116477, z: -0.17335865, w: 0.8236446}
+  m_LocalRotation: {x: 0.41852477, y: 0.34116474, z: -0.17335857, w: 0.8236447}
   m_LocalPosition: {x: -8, y: 16, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -646,7 +662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rotateSpeed: 100
+  rotateSpeed: 180
   playerRigidbody: {fileID: 1707361562}
 --- !u!114 &1707361565
 MonoBehaviour:
@@ -681,6 +697,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e828621afb51241b91dbefaf1fd042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gun: {fileID: 393018928}
+  gunPivot: {fileID: 1050945268}
+  leftHandMount: {fileID: 1158868951}
+  rightHandMount: {fileID: 1911391026}
 --- !u!1001 &1773035060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -812,3 +832,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49b04053ea2dc49ae8eae12418134ef1, type: 3}
+--- !u!4 &1911391026 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4789895822770736, guid: 13259943c4d634186ac994d570bb3253, type: 3}
+  m_PrefabInstance: {fileID: 1773035060}
+  m_PrefabAsset: {fileID: 0}

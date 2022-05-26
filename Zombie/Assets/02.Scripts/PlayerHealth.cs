@@ -60,8 +60,16 @@ public class PlayerHealth : LivingEntity
     // 데미지 처리
     public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
     {
+        if ( !dead )
+        {
+            // 사망하지 않은 경우에만 효과음 재생
+            playerAudioPlayer.PlayOneShot(hitClip);
+        }
+
         // LivingEntity의 OnDamage() 실행(데미지 적용)
         base.OnDamage(damage, hitPoint, hitNormal);
+        // 갱신된 체력을 체력 슬라이더에 반영
+        healthSlider.value = health;
     }
 
     // 사망 처리
@@ -69,10 +77,43 @@ public class PlayerHealth : LivingEntity
     {
         // LivingEntity의 Die() 실행(사망 적용)
         base.Die();
+
+        // 체력 슬라이더 비활성화
+        healthSlider.gameObject.SetActive(false);
+
+        // 사망음 재생
+        playerAudioPlayer.PlayOneShot(deathClip);
+        // 애니메이터의 Die 트리거를 발동시켜 사망 애니메이션 재생
+        playerAnimator.SetTrigger("Die");
+
+        // 플레이어 조작을 받는 컴포넌트 비활성화
+        playerMovement.enabled = false;
+        playerShooter.enabled = false;
     }
+
+    // private void OnDisable() 
+    // {
+    //     playerMovement.enabled = false;
+    //     playerShooter.enabled = false;    
+    // }
 
     private void OnTriggerEnter(Collider other) 
     {
         // 아이템과 충돌한 경우 해당 아이템을 사용하는 처리
+        // 사망하지 않은 경우에만 아이템 사용 가능
+        if ( !dead )
+        {
+            // 충돌한 상대방으로부터 IItem 컴포넌트 가져오기 시도
+            IItem item = other.GetComponent<IItem>();
+
+            // 충돌한 상대방으로부터 IItem 컴포넌트를 가져오는데 성공했다면
+            if ( item != null )
+            {
+                // Use 메서드를 실행하여 아이템 사용
+                item.Use(gameObject);
+                // 아이템 습득 소리 재생
+                playerAudioPlayer.PlayOneShot(itemPickupClip);
+            }
+        } 
     }
 }

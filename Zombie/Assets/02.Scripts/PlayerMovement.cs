@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 // 사용자 입력에 따라 플레이어 캐릭터를 움직이는 스크립트
 public class PlayerMovement : MonoBehaviour

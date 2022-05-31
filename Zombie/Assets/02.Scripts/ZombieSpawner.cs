@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+//using System; // c#의 Math 메서드를 쓰기 위한 선언
 
 // 좀비 게임 오브젝트를 주기적으로 생성
 public class ZombieSpawner : MonoBehaviour
@@ -46,6 +47,8 @@ public class ZombieSpawner : MonoBehaviour
 
         // 현재 웨이브 * 1.5를 반올림한 수만큼 좀비 생성
         int spawnCount = Mathf.RoundToInt(wave * 1.5f);
+        // Math.??? // 유니티 Mathf와 같은 C#의 메서드
+        // System.Math // 위에서 using System을 선언하지 않았을 경우 사용
         
         // spawnCount만큼 좀비 생성
         for (int i = 0; i < spawnCount; i++)
